@@ -210,7 +210,9 @@
 	
 <head>
 	<meta charset="utf-8">
-	<title>振远路由<%=striptags(( (node and node.title) and ' - ' .. translate(node.title) or '')) %></title>
+	<title>
+		<%=striptags( (boardinfo.hostname or "?") .. ( (node and node.title) and ' - ' .. translate(node.title) or '')) %>
+		- LuCI</title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
 	<meta name="format-detection" content="telephone=no, email=no" />
 	<meta name="apple-mobile-web-app-capable" content="yes">
@@ -273,7 +275,7 @@
 	<div class="main">
 		<div class="main-left">
 			<div class="sidenav-header d-flex align-items-center">
-				<a class="brand" href="#">振远路由</a>
+				<a class="brand" href="#"><%=boardinfo.hostname or "?"%></a>
 			</div>
 			<% render_topmenu() %>
 		</div>
@@ -282,7 +284,7 @@
 				<div class="fill">
 					<div class="container">
 						<a class="showSide"></a>
-						<a class="brand" href="#">振远路由</a>
+						<a class="brand" href="#"><%=boardinfo.hostname or "?"%></a>
 						<div class="pull-right">
 							<% render_changes() %>
 							<span id="xhr_poll_status" style="display:none"
